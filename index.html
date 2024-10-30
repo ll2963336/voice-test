@@ -6,18 +6,26 @@
         <title>voice test</title>
     </head>
     <body>
+        <button id="voice-play-btn">Click Me!</button>
         <div id="console-msg"></div>
-        <script>
+        <script type="module">
+            const voicePlayBtnEl = document.getElementById('voice-play-btn');
             const cmEl = document.getElementById('console-msg');
-            const audio = new Audio('/test.mp3');
-            audio
-                .play()
-                .then(() => {
-                    cmEl.innerText = 'Autoplay successed!';
-                })
-                .catch(() => {
-                    cmEl.innerText = 'Autoplay failed!';
-                });
+            function playVoice() {
+                const audio = new Audio('./test.mp3');
+                audio
+                    .play()
+                    .then(() => {
+                        cmEl.innerText = 'Autoplay successed!';
+                    })
+                    .catch(() => {
+                        cmEl.innerText = 'Autoplay failed!';
+                    });
+            }
+            playVoice();
+            voicePlayBtnEl.onclick = () => {
+                playVoice();
+            };
         </script>
     </body>
 </html>
