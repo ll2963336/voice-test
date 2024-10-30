@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>voice test</title>
+    </head>
+    <body>
+        <div id="console-msg"></div>
+        <script>
+            const cmEl = document.getElementById('console-msg');
+            const audio = new Audio('./test.mp3');
+            audio
+                .play()
+                .then(() => {
+                    cmEl.innerText = 'Autoplay successed!';
+                })
+                .catch(() => {
+                    cmEl.innerText = 'Autoplay failed!';
+                });
+        </script>
+    </body>
+</html>
